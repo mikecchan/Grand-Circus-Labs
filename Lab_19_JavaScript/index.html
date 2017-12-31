@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<HTML>
+	<HEAD>
+		<link rel="stylesheet" href="css/bootstrap.css">
+	</HEAD>
+	<BODY>
+		<div class="container">
+			<header>
+				<h1>Lab 19</h1>
+				<h2>Shopping</h2>
+			</header>
+			<section>
+				<h2>Please select the following items to purchase</h2>
+    			<br />
+					<ul style="list-style-type:none">
+						<li>Steak $20  <button onclick="addToCart('Steak 20')">Add to Cart</button></li>
+						<li>Chicken $7 <button onclick="addToCart('Chicken 7')">Add to Cart</button></li>
+						<li>Pork $6    <button onclick="addToCart('Pork 6')">Add to Cart</button></li>
+						<li>Fish $15   <button onclick="addToCart('Fish 15')">Add to Cart</button></li>
+						<li>Sausage $8 <button onclick="addToCart('Sausage 8')">Add to Cart</button></li>
+						<li>Rice $3    <button onclick="addToCart('Rice 3')">Add to Cart</button></li>
+						<li>Veggie $4  <button onclick="addToCart('Veggie 4')">Add to Cart</button></li>
+					</ul>
+    			<br />
+    			<button onclick="displayTotal()">Checkout</button>
+    			<br />
+    			<h3>Your Cart...</h3>
+    			<ul style="list-style-type:none">
+    				<p id="result"></p>
+    			</ul>
+    			<h2 id="total"></h2>
+			</section>
+		</div>
+		<script>
+			var shoppingCart = [];
+			var priceArray=[];
+			var p = document.getElementById("result");
+			var total = 0;
+			var item;
+	
+			function addToCart(item){
+				item = item.split(" ");
+				shoppingCart.push(item[0]);
+				priceArray.push(parseInt(item[1]));
+			}
+	
+			function displayTotal(){
+				for (var i=0 ; i < shoppingCart.length; i++) {
+					var node = document.createElement("li");
+					var textNode = document.createTextNode(shoppingCart[i] + " $" + priceArray[i]);
+					node.appendChild(textNode);
+					document.getElementById("result").appendChild(node);
+					total += priceArray[i];
+				}
+				var price_node = document.createTextNode("Your Total: is $" + total);
+				document.getElementById("total").appendChild(price_node);
+			}
+		</script>
+	</BODY>
+</HTML>

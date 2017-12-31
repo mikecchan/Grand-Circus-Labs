@@ -1,0 +1,27 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.gc.dto.ProductDto" table="Product"
+		schema="GCBS_cof">
+
+
+		<id name="productID">
+			
+			<column name="ProductID" sql-type="int(11)"></column>
+		</id>
+
+		<property name="type">
+			<column name="Type" sql-type="varchar(20)" length="10"></column>
+		</property>
+		<property name="flavor">
+			<column name="Flavor" sql-type="varchar(20)" length="255"></column>
+		</property>
+		<property name="listprice">
+			<column name="ListPrice" sql-type="double"></column>
+		</property>
+
+	</class>
+</hibernate-mapping>		
